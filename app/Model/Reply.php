@@ -1,7 +1,11 @@
 <?php
 
 namespace App\Model;
-
+use App\Model\Question;
+use App\Model\Category;
+use App\User;
+use App\Model\Reply;
+use App\Model\Like;
 use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
