@@ -25,7 +25,10 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // to get user_id
+        // auth()->user()->question()->create($request->all());
+        Question::create($request->all());
+        return response('Created', 201);
     }
 
     /**
@@ -59,6 +62,7 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
-        //
+        $question->delete();
+        return response(null, 204);
     }
 }
