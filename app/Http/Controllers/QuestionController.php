@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Question;
 use Illuminate\Http\Request;
 use App\Http\Resources\QuestionResource;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class QuestionController extends Controller
@@ -30,7 +31,7 @@ class QuestionController extends Controller
         // to get user_id
         // auth()->user()->question()->create($request->all());
         Question::create($request->all());
-        return response('Created', 201);
+        return response('Created', Response::HTTP_CREATED);
     }
 
     /**
@@ -53,7 +54,8 @@ class QuestionController extends Controller
      */
     public function update(Request $request, Question $question)
     {
-        //
+        $question->update($request->all());
+        return response('Updated', Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -65,6 +67,6 @@ class QuestionController extends Controller
     public function destroy(Question $question)
     {
         $question->delete();
-        return response(null, 204);
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }
