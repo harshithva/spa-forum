@@ -12,9 +12,6 @@ $factory->define(Like::class, function (Faker $faker) {
     return [
         'user_id' => function() {
             return User::all()->random();
-        },
-        'question_id' => function() {
-            return Question::all()->random();
         }
     ];
 });

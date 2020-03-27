@@ -21,3 +21,6 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('/question', 'QuestionController');
 Route::apiResource('/reply', 'ReplyController');
 Route::apiResource('/category', 'CategoryController');
+
+Route::post('/like/{reply}', 'LikeController@likeIt');
+Route::delete('/like/{reply}', 'LikeController@unLikeIt');
