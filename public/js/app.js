@@ -2040,6 +2040,15 @@ __webpack_require__.r(__webpack_exports__);
         password: null
       }
     };
+  },
+  methods: {
+    login: function login() {
+      axios.post("api/auth/login", this.form).then(function (res) {
+        return console.log(res.data);
+      })["catch"](function (err) {
+        return console.log(error.response.data);
+      });
+    }
   }
 });
 
@@ -38231,13 +38240,11 @@ var render = function() {
       _c(
         "v-form",
         {
-          ref: "form",
-          model: {
-            value: _vm.valid,
-            callback: function($$v) {
-              _vm.valid = $$v
-            },
-            expression: "valid"
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.login($event)
+            }
           }
         },
         [
