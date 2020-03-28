@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -15,7 +16,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('jwt', ['except' => ['login']]);
+        $this->middleware('jwt', ['except' => ['login','signup']]);
     }
 
     /**
@@ -35,6 +36,14 @@ class AuthController extends Controller
 
         return response()->json(['error' => 'Unauthorized'], 401);
     }
+
+    public function signup(Request $request)
+    {
+        // $request->password = bcrypt($request->password);
+      User::create($request->all());
+      return $this->login($request);
+    }
+
 
     /**
      * Get the authenticated User
