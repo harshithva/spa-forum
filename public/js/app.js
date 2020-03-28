@@ -1984,7 +1984,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      items: [{
+        title: "Category"
+      }, {
+        title: "Sign Up"
+      }]
+    };
+  }
+});
 
 /***/ }),
 
@@ -37430,26 +37445,62 @@ var render = function() {
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
-          _c(
-            "v-btn",
-            { attrs: { icon: "" } },
-            [_c("v-icon", [_vm._v("mdi-magnify")])],
-            1
-          ),
+          _c("v-btn", { attrs: { flat: "" } }, [_vm._v("Log in")]),
           _vm._v(" "),
           _c(
             "v-btn",
-            { attrs: { icon: "" } },
-            [_c("v-icon", [_vm._v("mdi-heart")])],
-            1
+            { staticClass: "blue white--text ml-2", attrs: { flat: "" } },
+            [_vm._v("Ask Question")]
           ),
           _vm._v(" "),
-          _c(
-            "v-btn",
-            { attrs: { icon: "" } },
-            [_c("v-icon", [_vm._v("mdi-dots-vertical")])],
-            1
-          )
+          _c("v-btn", { attrs: { icon: "" } }, [
+            _c(
+              "div",
+              { staticClass: "text-center" },
+              [
+                _c(
+                  "v-menu",
+                  {
+                    attrs: { "offset-y": "" },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "activator",
+                        fn: function(ref) {
+                          var on = ref.on
+                          return [
+                            _c("v-icon", _vm._g({}, on), [
+                              _vm._v("mdi-dots-vertical")
+                            ])
+                          ]
+                        }
+                      }
+                    ])
+                  },
+                  [
+                    _vm._v(" "),
+                    _c(
+                      "v-list",
+                      _vm._l(_vm.items, function(item, index) {
+                        return _c(
+                          "v-list-item",
+                          { key: index, on: { click: function($event) {} } },
+                          [
+                            _c("v-list-item-title", [
+                              _vm._v(_vm._s(item.title))
+                            ])
+                          ],
+                          1
+                        )
+                      }),
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ])
         ],
         1
       )

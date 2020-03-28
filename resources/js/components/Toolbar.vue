@@ -7,23 +7,32 @@
 
       <v-spacer></v-spacer>
 
+      <v-btn flat>Log in</v-btn>
+      <v-btn flat class="blue white--text ml-2">Ask Question</v-btn>
       <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
+        <div class="text-center">
+          <v-menu offset-y>
+            <template v-slot:activator="{ on }">
+              <v-icon v-on="on">mdi-dots-vertical</v-icon>
+            </template>
+            <v-list>
+              <v-list-item v-for="(item, index) in items" :key="index" @click>
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </div>
       </v-btn>
     </v-toolbar>
   </v-card>
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    items: [{ title: "Category" }, { title: "Sign Up" }]
+  })
+};
 </script>
 <style scoped>
 </style>
