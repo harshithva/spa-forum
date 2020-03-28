@@ -8,10 +8,10 @@
 
     <v-spacer></v-spacer>
     <router-link to="/login">
-      <v-btn flat>Log in</v-btn>
+      <v-btn text>Log in</v-btn>
     </router-link>
 
-    <v-btn flat class="blue white--text ml-2">Ask Question</v-btn>
+    <v-btn text class="blue white--text ml-2">Ask Question</v-btn>
     <v-btn icon>
       <div class="text-center">
         <v-menu offset-y>

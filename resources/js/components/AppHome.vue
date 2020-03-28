@@ -9,6 +9,7 @@
 <script>
 import toolbar from "./Toolbar";
 import AppFooter from "./AppFooter";
+
 export default {
   components: {
     toolbar,
