@@ -30,7 +30,13 @@
 <script>
 export default {
   data: () => ({
-    items: [{ title: "Category" }, { title: "Sign Up" }]
+    items: [
+      { title: "Category" },
+      { title: "Sign Up" },
+      { title: "Contact Us" },
+      { title: "FAQ" },
+      { title: "Privacy Policy" }
+    ]
   })
 };
 </script>
