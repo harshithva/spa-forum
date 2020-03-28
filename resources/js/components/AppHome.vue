@@ -1,6 +1,7 @@
 <template>
   <div>
     <toolbar />
+    <router-view></router-view>
     <app-footer />
   </div>
 </template>
