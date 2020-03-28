@@ -2,7 +2,9 @@
   <v-toolbar dense>
     <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-    <v-toolbar-title>Forum</v-toolbar-title>
+    <v-toolbar-title>
+      <router-link to="/">Forum</router-link>
+    </v-toolbar-title>
 
     <v-spacer></v-spacer>
     <router-link to="/login">
@@ -40,5 +42,9 @@ export default {
   })
 };
 </script>
+
 <style scoped>
+a {
+  text-decoration: none;
+}
 </style>
