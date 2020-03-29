@@ -20,7 +20,9 @@
           </template>
           <v-list>
             <v-list-item v-for="(item, index) in items" :key="index" @click>
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
+              <router-link v-bind:to="item.link">
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </router-link>
             </v-list-item>
           </v-list>
         </v-menu>
@@ -33,11 +35,11 @@
 export default {
   data: () => ({
     items: [
-      { title: "Category" },
-      { title: "Sign Up" },
-      { title: "Contact Us" },
-      { title: "FAQ" },
-      { title: "Privacy Policy" }
+      { title: "Category", link: "/category" },
+      { title: "Sign Up", link: "/signup" },
+      { title: "Contact Us", link: "/contact" },
+      { title: "FAQ", link: "/faq" },
+      { title: "Privacy Policy", link: "/privacy" }
     ]
   })
 };

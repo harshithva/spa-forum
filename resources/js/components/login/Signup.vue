@@ -1,14 +1,11 @@
 <template>
   <v-container>
-    <v-form @submit.prevent="login">
+    <v-form @submit.prevent="signUp">
+      <v-text-field v-model="form.name" label="Name" type="text" required></v-text-field>
       <v-text-field v-model="form.email" label="E-mail" type="email" required></v-text-field>
       <v-text-field v-model="form.password" label="Password" type="password" required></v-text-field>
 
-      <v-btn class="mr-4" type="submit">Login</v-btn>
-
-      <router-link to="/signup">
-        <v-btn color="error">sign up</v-btn>
-      </router-link>
+      <v-btn color="error" class="mr-4" type="submit">Sign Up</v-btn>
     </v-form>
   </v-container>
 </template>
@@ -18,21 +15,18 @@ export default {
   data() {
     return {
       form: {
+        name: null,
         email: null,
         password: null
       }
     };
   },
   methods: {
-    login() {
-      User.login(this.form);
+    signUp() {
+      User.signUp(this.form);
     }
   }
 };
 </script>
-
 <style scoped>
-a {
-  text-decoration: none;
-}
 </style>

@@ -19,6 +19,12 @@ class User {
         }
 
     }
+    signUp(data) {
+        axios
+            .post("api/auth/signup", data)
+            .then(res => this.responseAfterLogin(res))
+            .catch(error => console.log(error.response.data));
+    }
     hasToken() {
         const storedToken = AppStorage.getToken();
         if (storedToken) {
