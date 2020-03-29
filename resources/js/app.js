@@ -23,8 +23,12 @@ Vue.use(Vuetify);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('AppHome', require('./components/AppHome.vue').default);
-
 import router from './Router/router';
+
+import User from './helpers/User';
+window.User = User;
+console.log(User.id());
+
 
 const app = new Vue({
     el: '#app',

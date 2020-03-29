@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import User from "../../helpers/User";
+
 export default {
   data() {
     return {
