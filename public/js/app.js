@@ -2082,19 +2082,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       form: {
         name: null,
         email: null,
-        password: null
-      }
+        password: null,
+        password_confrimation: null
+      },
+      errors: {}
     };
   },
   methods: {
     signUp: function signUp() {
-      User.signUp(this.form);
+      var _this = this;
+
+      axios.post("api/auth/signup", this.form).then(function (res) {
+        return User.responseAfterLogin(res);
+      })["catch"](function (error) {
+        return _this.errors = error.response.data.errors;
+      });
     }
   }
 });
@@ -38441,6 +38453,12 @@ var render = function() {
             }
           }),
           _vm._v(" "),
+          _vm.errors.name
+            ? _c("span", { staticClass: "red--text" }, [
+                _vm._v(_vm._s(_vm.errors.name[0]))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("v-text-field", {
             attrs: { label: "E-mail", type: "email", required: "" },
             model: {
@@ -38452,6 +38470,12 @@ var render = function() {
             }
           }),
           _vm._v(" "),
+          _vm.errors.email
+            ? _c("span", { staticClass: "red--text" }, [
+                _vm._v(_vm._s(_vm.errors.email[0]))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("v-text-field", {
             attrs: { label: "Password", type: "password", required: "" },
             model: {
@@ -38460,6 +38484,23 @@ var render = function() {
                 _vm.$set(_vm.form, "password", $$v)
               },
               expression: "form.password"
+            }
+          }),
+          _vm._v(" "),
+          _vm.errors.password
+            ? _c("span", { staticClass: "red--text" }, [
+                _vm._v(_vm._s(_vm.errors.password[0]))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("v-text-field", {
+            attrs: { label: "Password", type: "password", required: "" },
+            model: {
+              value: _vm.form.password_confrimation,
+              callback: function($$v) {
+                _vm.$set(_vm.form, "password_confrimation", $$v)
+              },
+              expression: "form.password_confrimation"
             }
           }),
           _vm._v(" "),
@@ -95741,17 +95782,6 @@ var User = /*#__PURE__*/function () {
       if (_Token__WEBPACK_IMPORTED_MODULE_0__["default"].isValid(access_token)) {
         _AppStorage__WEBPACK_IMPORTED_MODULE_1__["default"].store(username, access_token);
       }
-    }
-  }, {
-    key: "signUp",
-    value: function signUp(data) {
-      var _this2 = this;
-
-      axios.post("api/auth/signup", data).then(function (res) {
-        return _this2.responseAfterLogin(res);
-      })["catch"](function (error) {
-        return console.log(error.response.data);
-      });
     }
   }, {
     key: "hasToken",

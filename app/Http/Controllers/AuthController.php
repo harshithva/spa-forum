@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\SignupRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -37,7 +38,7 @@ class AuthController extends Controller
         return response()->json(['error' => 'Unauthorized'], 401);
     }
 
-    public function signup(Request $request)
+    public function signup(SignupRequest $request)
     {
         // $request->password = bcrypt($request->password);
       User::create($request->all());
